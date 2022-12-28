@@ -1,0 +1,57 @@
+{
+  "autoPlay": true,
+  "fullScreen": {
+    "enable": false,
+    "zIndex": -1
+  },
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true
+      }
+    },
+    "color": {
+      "value": "#F5F5F5 "
+    },
+    "shape": {
+      "type": "polygon",
+      "polygon": {
+        "sides": 18
+      }
+    },
+    "opacity": {
+      "value": { "min": 0.3, "max": 0.5 }
+    },
+    "size": {
+      "value": { "min": 100, "max": 160 }
+    },
+    "move": {
+      "enable": true,
+      "speed": 8,
+      "direction": "none",
+      "outModes": "out"
+    }
+  },
+  "interactivity": {
+    "events": {
+      "onHover": {
+        "enable": true,
+        "mode": "bubble"
+      }
+    },
+    "modes": {
+      "bubble": {
+        "distance": 400,
+        "duration": 2,
+        "size": 10,
+        "opacity": 0.8,
+        "speed": 2,
+        "color": "#F1F1F1"
+      }
+    }
+  },
+  "background": {
+    "color": "#FDFDFD"
+  }
+}

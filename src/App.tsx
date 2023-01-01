@@ -9,13 +9,20 @@ import {Skills} from "./components/skills";
 import {Experience} from "./components/experience";
 import {Projects} from "./components/projects";
 import {Music} from "./components/music";
+import {FooterSocial} from "./components/footer";
 
 
-const links = [{link: "", label: "Home"}, {link: "", label: "About"}, {link: "", label: "Skills"}, {link: "", label: "Experience"}, {link: "", label: "Projects"} ,{link: "", label: "Music"}]
+const links = [
+    {link: "home", label: "Home"},
+    {link: "about", label: "About"},
+    {link: "skills", label: "Skills"},
+    {link: "experience", label: "Experience"},
+    {link: "projects", label: "Projects"} ,
+    {link: "music", label: "Music"}]
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{overflowX: "hidden"}}>
         <MantineProvider withGlobalStyles withNormalizeCSS theme={{
             fontFamily: 'Work Sans, sans-serif',
             fontFamilyMonospace: 'Monaco, Courier, monospace',
@@ -29,6 +36,7 @@ function App() {
                 <Projects/>
                 <Music/>
             </Container>
+            <FooterSocial/>
         </MantineProvider>
     </div>
   );

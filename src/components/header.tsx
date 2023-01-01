@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import {createStyles, Header, Container, Group, Burger, Image, Avatar} from '@mantine/core';
+import {createStyles, Header, Container, Group, Burger, Image, Avatar, Text} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantine/ds';
+import {IconArrowLeft, IconDoorEnter} from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -58,10 +59,9 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
     const items = links.map((link) => (
         <a
             key={link.label}
-    href={link.link}
+    href={"#"+link.link}
     className={cx(classes.link, { [classes.linkActive]: active === link.link })}
     onClick={(event) => {
-        event.preventDefault();
         setActive(link.link);
     }}
 >
@@ -71,13 +71,19 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
 
     return (
         <Header height={60} mb={120}>
-    <Container className={classes.header}>
-    <Avatar color={"blue"}>MS</Avatar>
-    <Group spacing={5} className={classes.links}>
-        {items}
-        </Group>
 
-        <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+
+        <Container className={classes.header}>
+            <Group>
+
+        <Avatar color={"blue"}>MS</Avatar>
+                <h2 style={{color: 'gray'}}>Online Resume</h2>
+            </Group>
+        <Group spacing={5} className={classes.links}>
+            {items}
+            </Group>
+
+            <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
         </Container>
         </Header>
 );

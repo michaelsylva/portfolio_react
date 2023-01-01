@@ -9,11 +9,13 @@ import {useCallback} from "react";
 
 const useStyles = createStyles((theme)=>({
     links: {
-        color: "#1a70b3"
+        color: "black",
+        textDecoration: "underline"
     },
 
     margin: {
         margin: "-50px",
+        padding: "5%",
         backgroundImage: "../images/cool-background.svg"
     },
     particles: {
@@ -45,7 +47,7 @@ export function Hero() {
     return (
 
         <>
-                <Grid align={"flex-start"} grow  className={classes.margin}>
+                <Grid id="home" align={"flex-start"} grow  className={classes.margin}>
 
                     {/*<Particles id="tsparticles" url="js/bubbles.json" init={particlesInit} loaded={particlesLoaded} width={"auto"} className={classes.particles}/>
 */}
@@ -55,18 +57,21 @@ export function Hero() {
 
                         <Text size={55} fw={900} variant="gradient"
                               gradient={{ from: 'blue.5', to: 'blue.9', deg: 45 }}>Michael Sylva</Text>
-                        <Text size={40} fw={700} color={"blue.10"}>Software Engineer</Text>
+
+                        <Stack spacing={0}>
+                        <Text size={30} fw={400} color={"blue.10"}>Software Engineer</Text>
                         <Group>
-                            <IconMail size={20}/><a href={"mailto:sylvamj@gmail.com"}>sylvamj@gmail.com</a>
+                            <IconMail size={20}/><a className={classes.links} href={"mailto:sylvamj@gmail.com"}>sylvamj@gmail.com</a>
                         </Group>
                         <Group>
                             <IconMapPin size={20}/><Text>Tempe, AZ</Text>
                         </Group>
                         <Group>
-                            <IconBrandGithub size={20}/> <a href={"https://github.com/MichaelS52"}>
+                            <IconBrandGithub size={20}/> <a className={classes.links} href={"https://github.com/MichaelS52"}>
                             https://github.com/MichaelS52
                         </a>
                         </Group>
+                        </Stack>
 
                     </Stack>
                         </Center>

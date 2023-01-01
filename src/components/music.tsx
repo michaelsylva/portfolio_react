@@ -34,21 +34,28 @@ interface ExperienceList{
 
 export function Music() {
 
+    const {classes} = useStyles()
+
     return (
-<>
-        <Text size={40} fw={700} color={"blue.10"}>Music</Text>
+<div id={"music"}>
+        <Text size={40} fw={700} className={classes.margin} color={"blue.10"}>Music</Text>
 
     <Grid m={10}>
             <Grid.Col span={"content"}>
                     <Text size={"sm"} color={"dimmed"}>(Producer, Drums)</Text>
+                <Center>
                     <Spotify link={"https://open.spotify.com/artist/5vAn0UxdU1ovz6g7WsFDHE?si=TBPM5Qj6QVm7pGN-Y-8NiA"}/>
+                </Center>
             </Grid.Col>
             <Grid.Col span={"content"}>
+
                 <Text size={"sm"} color={"dimmed"}>(Producer, Drums)</Text>
+                <Center>
                 <Spotify link={"https://open.spotify.com/artist/2e6rBejQPMCcdfE4V3AnBK?si=4Vj2PGyYQSK_HL69zzZE6A"}/>
+                </Center>
             </Grid.Col>
         </Grid>
-</>
+</div>
     )
 
 }

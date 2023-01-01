@@ -24,24 +24,24 @@ export function AboutMe() {
     const {classes, cx} = useStyles();
 
     return (
-        <Grid h={"auto"} mt={50}>
-            <Grid.Col md={6} lg={6} sm={12} p={20}>
+        <Grid h={"auto"} mt={50} >
+            <Grid.Col md={6} lg={6} sm={12} p={20} id={"about"}>
                 <Text size={40} fw={700} color={"blue.10"}>About Me</Text>
 
-                <Box className={classes.margin}>
+                <Box style={{border: "1.5px solid #e2e2e2", borderRadius: "5px"}} p={10}>
                 <p style={{fontSize: "17px"}}>Hello! My name is Michael. When I was 13 I started to teach myself software development as a means to be creative. my knowledge began by learning the ins-and-outs of Java programming for Minecraft. Eventually, my skills grew in other projects such as: designing UI and UX, setting up UNIX systems, and building fullstack web services. I am always excited to earn new opportunities to shape my Software Engineering career.</p>
             </Box>
             </Grid.Col>
 
-            <Grid.Col lg={6} sm={12} p={20}>
+            <Grid.Col lg={6} sm={12} p={20} id={"skills"}>
             <Text size={40} fw={700} color={"blue.10"}>Skills</Text>
-            <Tabs defaultValue="gallery">
+            <Tabs defaultValue="languages" style={{border: "1.5px solid #e2e2e2", borderRadius: "5px", paddingTop: "14px", paddingBottom: "10px"}}>
                 <Tabs.List>
-                    <Tabs.Tab value="gallery" className={classes.large} icon={<IconCode size={14} />}>Languages</Tabs.Tab>
-                    <Tabs.Tab value="messages" className={classes.large} icon={<IconBrandReact size={14} />}>Frameworks</Tabs.Tab>
+                    <Tabs.Tab value="languages" className={classes.large} icon={<IconCode size={14} />}>Languages</Tabs.Tab>
+                    <Tabs.Tab value="frameworks" className={classes.large} icon={<IconBrandReact size={14} />}>Frameworks</Tabs.Tab>
                 </Tabs.List>
 
-                <Tabs.Panel value="gallery" pt="xs">
+                <Tabs.Panel value="languages" pt="xs">
                     <List spacing={"xs"} size={"lg"} withPadding>
                         <Grid>
                             <Grid.Col span={6}>
@@ -85,7 +85,7 @@ export function AboutMe() {
                     </List>
                 </Tabs.Panel>
 
-                <Tabs.Panel value="messages" pt="xs">
+                <Tabs.Panel value="frameworks" pt="xs">
                     <List spacing={"xs"} size={"lg"} withPadding>
                         <List.Item icon={<IconBrandBootstrap/>}>
                             Bootstrap

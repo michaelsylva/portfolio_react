@@ -49,7 +49,7 @@ export function Experience() {
         {
             title: "Bomara",
             logo: "../images/Bomara.png",
-            years: "2017 - Current",
+            years: "2016 - 2017",
             position: "Web Developer",
             description: "",
             bullets: [
@@ -60,7 +60,7 @@ export function Experience() {
         {
             title: "Visible Systems",
             logo: "../images/VisibleLogo.jpeg",
-            years: "2017 - Current",
+            years: "2017 - 2022",
             position: "Web Developer",
             description: "",
             bullets: [
@@ -83,14 +83,15 @@ export function Experience() {
         }
         ]
 
+    const {classes, cx} = useStyles()
     const [exp, setExp] = useState(experienceList)
 
     return (
-        <>
-            <Text size={40} fw={700} color={"blue.10"}>Experience</Text>
+        <div id={"experience"}>
+            <Text size={40} className={classes.margin} fw={700} color={"blue.10"}>Experience</Text>
             {exp.map((experience) => {
             return(
-            <Paper shadow={"sm"} p={"md"} radius={"sm"} m={20} withBorder>
+            <Paper shadow={"sm"} p={"md"} radius={"sm"} m={10} withBorder>
                 <Group>
                     <Image src={ (experience.logo) } height={40} width={40}/>
                     <Stack spacing={0}>
@@ -117,6 +118,6 @@ export function Experience() {
             )
         })}
             <Space my={50}/>
-        </>
+        </div>
     )
 }

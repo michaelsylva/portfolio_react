@@ -18,6 +18,9 @@ const useStyles = createStyles((theme)=>({
     cardHover: {
         transform: "scale(1.02, 1.02)",
         transition: "0.05s"
+    },
+    margin: {
+        margin: "10px"
     }
 }))
 
@@ -60,8 +63,8 @@ export function Projects() {
     const [hover, setHover] = useState("")
 
     return (
-        <>
-            <Text size={40} fw={700} color={"blue.10"}>Projects</Text>
+        <div id={"projects"}>
+            <Text size={40} fw={700} className={classes.margin} color={"blue.10"}>Projects</Text>
             {projects.map((proj)=>{
                 return(
                 <Paper key={proj.title} className={hover!="" && hover==proj.title ? classes.cardHover : ""} onMouseOver={()=>setHover(proj.title)} onMouseOut={()=>setHover("")} withBorder shadow={"sm"} p={25} m={20} radius={"md"} bg={"white.3"}>
@@ -83,6 +86,6 @@ export function Projects() {
                 </Paper>
                 )
             })}
-        </>
+        </div>
     )
 }

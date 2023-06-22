@@ -6,6 +6,7 @@ import Particles from "react-tsparticles"
 import type {Container, Engine} from "tsparticles-engine";
 
 import {useCallback} from "react";
+import ReactFloaterJs from "react-floaterjs";
 
 const useStyles = createStyles((theme)=>({
     links: {
@@ -47,7 +48,7 @@ export function Hero() {
     return (
 
         <>
-                <Grid id="home" align={"flex-start"} grow  className={classes.margin}>
+                <Grid id="home" align={"flex-start"} pt={50} grow  className={classes.margin}>
 
                     {/*<Particles id="tsparticles" url="js/bubbles.json" init={particlesInit} loaded={particlesLoaded} width={"auto"} className={classes.particles}/>
 */}
@@ -78,7 +79,9 @@ export function Hero() {
                     </Grid.Col>
                     <Grid.Col md={6} sm={12}>
                     <Stack>
+                        <ReactFloaterJs>
                         <Image src={AbstractShape} height={"350px"}></Image>
+                        </ReactFloaterJs>
                     </Stack>
                     </Grid.Col>
                 </Grid>

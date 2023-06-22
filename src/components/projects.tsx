@@ -6,10 +6,11 @@ import {
     IconBrandReact, IconCamera,
     IconCode, IconDatabase, IconDoor, IconFileCode, IconFileCode2, IconFileDatabase, IconGlass,
     IconMessageCircle,
-    IconPhoto,
-    IconSettings, IconSquare, IconWand, IconWebhook, IconWindow
+    IconPhoto, IconUsers,
+    IconSettings, IconSquare, IconWand, IconWebhook, IconWindow, IconDeviceDesktop, IconLayoutDashboard, IconApps
 } from "@tabler/icons";
-import {useState} from "react";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const useStyles = createStyles((theme)=>({
     large: {
@@ -17,7 +18,8 @@ const useStyles = createStyles((theme)=>({
     },
     cardHover: {
         transform: "scale(1.02, 1.02)",
-        transition: "0.05s"
+        transition: "0.05s",
+        cursor:'pointer'
     },
     margin: {
         margin: "10px"
@@ -27,8 +29,33 @@ const useStyles = createStyles((theme)=>({
 export function Projects() {
 
     const {classes, cx} = useStyles()
+    const nav = useNavigate()
 
     const projectList = [
+        {
+            title: "Palm CRM",
+            icon: <IconUsers/>,
+            description: "A CRM project with a bunch of basic sales features",
+            tags: ['React', "Express", "Node", "Sequelize", "MariaDB"],
+            link: '/projects/palm_crm'
+        },
+        {
+            title: "Palm Website",
+            icon: <IconDeviceDesktop/>,
+            description: "Website for Palm Connectivity and the CRM project",
+            tags: ['React', "Vite"],
+            link: '/projects/palm_website'
+        },
+        {
+            title: "SoTellUs Dashboard",
+            icon: <IconLayoutDashboard/>,
+            description: "Dashboard for SoTellUs customers to interact with their accounts",
+            tags: ['React', "Vite"],
+            link: null
+        }
+    ]
+
+    const legacyProjects = [
         {
             title: "Experience Hub",
             icon: <IconWand/>,
@@ -67,10 +94,13 @@ export function Projects() {
             <Text size={40} fw={700} className={classes.margin} color={"blue.10"}>Projects</Text>
             {projects.map((proj)=>{
                 return(
-                <Paper key={proj.title} className={hover!="" && hover==proj.title ? classes.cardHover : ""} onMouseOver={()=>setHover(proj.title)} onMouseOut={()=>setHover("")} withBorder shadow={"sm"} p={25} m={20} radius={"md"} bg={"white.3"}>
+                <Paper key={proj.title} onClick={()=>{
+                    if(proj.link){
+                        nav(proj.link)
+                    }
+                }} className={hover!="" && hover==proj.title ? classes.cardHover : ""} onMouseOver={()=>setHover(proj.title)} onMouseOut={()=>setHover("")} withBorder shadow={"sm"} p={25} m={20} radius={"md"} bg={"white.3"}>
                     <Group>
                     <Text size={"xl"} fw={600}>{<span style={{verticalAlign: "middle"}}>{proj.icon}</span>} {proj.title}</Text>
-                    <Text size={"lg"} fw={300}>{proj.date}</Text>
                     </Group>
                     <Text size={"md"} fw={400}>{proj.description}</Text>
                     <Group spacing={5}>
@@ -81,8 +111,15 @@ export function Projects() {
                     })}
                     </Group>
                     <Space my={"md"}/>
-                    <Text size={"sm"} color={"dimmed"}>This project has a blog post associated</Text>
-                    <Button variant={"outline"} size={"xs"} mt={10}>Read more</Button>
+
+                    {proj.link ? <>
+                    <Text size={"sm"} color={"dimmed"}>This project has a post associated</Text>
+
+                    <Button variant={"outline"} size={"xs"} mt={10} onClick={()=>{
+                        nav(proj.link)
+                    }}>Read more</Button>
+                        </>
+                    : <></>}
                 </Paper>
                 )
             })}

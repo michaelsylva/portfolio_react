@@ -15,7 +15,7 @@ const useStyles = createStyles((theme)=>({
 
     margin: {
         margin: "-50px",
-        padding: "5%",
+        padding: "3%",
         backgroundImage: "../images/cool-background.svg"
     },
     particles: {

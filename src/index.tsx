@@ -1,15 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import PortfolioPage, {links} from './PortfolioPage';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import PalmCRM from "./components/PalmCRM";
+import { MantineProvider } from '@mantine/core';
+import {HeaderSimple} from "./components/header";
+import PalmWebsite from "./components/PalmWebsite";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <PortfolioPage/>,
+    },
+    {
+        path: "/projects/palm_crm",
+        element: <PalmCRM/>
+    },
+    {
+        path: '/projects/palm_website',
+        element: <PalmWebsite/>
+    }
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={{
+          fontFamily: 'Work Sans, sans-serif',
+          fontFamilyMonospace: 'Monaco, Courier, monospace',
+          headings: { fontFamily: 'Work Sans, sans-serif' },
+      }}>
+      <RouterProvider router={router}/>
+      </MantineProvider>
   </React.StrictMode>
 );
 

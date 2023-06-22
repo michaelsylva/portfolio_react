@@ -8,6 +8,7 @@ import {
     IconBrandReact,
     IconCode, IconDatabase, IconFileCode, IconFileCode2, IconFileDatabase, IconWebhook
 } from "@tabler/icons";
+import {SkewedBox} from "./crm/CRMStyles";
 
 const useStyles = createStyles((theme)=>({
     margin: {
@@ -25,15 +26,18 @@ export function AboutMe() {
 
     return (
         <Grid h={"auto"} mt={50} >
-            <Grid.Col md={6} lg={6} sm={12} p={20} id={"about"}>
-                <Text size={40} fw={700} color={"blue.10"}>About Me</Text>
-
-                <Box style={{border: "1.5px solid #e2e2e2", borderRadius: "5px"}} p={10}>
-                <p style={{fontSize: "17px"}}>Hello! My name is Michael. When I was 13 I started to teach myself software development as a means to be creative. my knowledge began by learning the ins-and-outs of Java programming for Minecraft. Eventually, my skills grew in other projects such as: designing UI and UX, setting up UNIX systems, and building fullstack web services. I am always excited to earn new opportunities to shape my Software Engineering career.</p>
-            </Box>
+            <Grid.Col md={12} lg={12} sm={12} p={0} id={"about"}>
+               <SkewedBox>
+                <Box p={10}>
+                    <Stack p={'lg'}>
+                        <Text size={30} fw={900}>Hello!</Text>
+                        <Text style={{fontSize: "17px"}}>My name is Michael. When I was 13 I started to teach myself software development as a means to be creative. my knowledge began by learning the ins-and-outs of Java programming for Minecraft. Eventually, my skills grew in other projects such as: designing UI and UX, setting up UNIX systems, and building fullstack web services. I am always excited to earn new opportunities to shape my Software Engineering career.</Text>
+                    </Stack>
+               </Box>
+               </SkewedBox>
             </Grid.Col>
 
-            <Grid.Col lg={6} sm={12} p={20} id={"skills"}>
+            <Grid.Col mt={'xl'} lg={12} sm={12} p={20} id={"skills"}>
             <Text size={40} fw={700} color={"blue.10"}>Skills</Text>
             <Tabs defaultValue="languages" style={{border: "1.5px solid #e2e2e2", borderRadius: "5px", paddingTop: "14px", paddingBottom: "10px"}}>
                 <Tabs.List>

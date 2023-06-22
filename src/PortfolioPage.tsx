@@ -12,7 +12,7 @@ import {Music} from "./components/music";
 import {FooterSocial} from "./components/footer";
 
 
-const links = [
+export const links = [
     {link: "home", label: "Home"},
     {link: "about", label: "About"},
     {link: "skills", label: "Skills"},
@@ -20,14 +20,9 @@ const links = [
     {link: "projects", label: "Projects"} ,
     {link: "music", label: "Music"}]
 
-function App() {
+export default function PortfolioPage() {
   return (
     <div className="App" style={{overflowX: "hidden"}}>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={{
-            fontFamily: 'Work Sans, sans-serif',
-            fontFamilyMonospace: 'Monaco, Courier, monospace',
-            headings: { fontFamily: 'Work Sans, sans-serif' },
-        }}>
           <HeaderSimple links={links}></HeaderSimple>
             <Container>
                     <Hero/>
@@ -37,9 +32,6 @@ function App() {
                 <Music/>
             </Container>
             <FooterSocial/>
-        </MantineProvider>
     </div>
   );
 }
-
-export default App;

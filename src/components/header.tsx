@@ -3,6 +3,7 @@ import {createStyles, Header, Container, Group, Burger, Image, Avatar, Text} fro
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantine/ds';
 import {IconArrowLeft, IconDoorEnter} from "@tabler/icons";
+import {useNavigate} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -53,37 +54,42 @@ interface HeaderSimpleProps {
 
 export function HeaderSimple({ links }: HeaderSimpleProps) {
     const [opened, { toggle }] = useDisclosure(false);
-    const [active, setActive] = useState(links[0].link);
+    const [active, setActive] = useState(links[0] && links[0].link ? links[0].link : "#");
     const { classes, cx } = useStyles();
 
-    const items = links.map((link) => (
-        <a
-            key={link.label}
-    href={"#"+link.link}
-    className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-    onClick={(event) => {
-        setActive(link.link);
-    }}
->
-    {link.label}
-    </a>
-));
+    const nav = useNavigate()
+
 
     return (
-        <Header height={60} mb={120}>
+        <Header height={60}>
 
 
-        <Container className={classes.header}>
+        <Container style={{cursor: 'pointer'}} onClick={()=>{
+            nav('/')
+        }} className={classes.header}>
             <Group>
 
         <Avatar color={"blue"}>MS</Avatar>
                 <h2 style={{color: 'gray'}}>Online Resume</h2>
             </Group>
         <Group spacing={5} className={classes.links}>
-            {items}
+            {links && links.length>0 ? links.map((link) => (
+                <a
+                    key={link.label}
+                    href={"#"+link.link}
+                    className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+                    onClick={(event) => {
+                        setActive(link.link);
+                    }}
+                >
+                    {link.label}
+                </a>
+            )) :
+
+                <></>
+            }
             </Group>
 
-            <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
         </Container>
         </Header>
 );

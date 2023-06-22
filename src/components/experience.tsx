@@ -10,9 +10,9 @@ import {
     Center,
     createStyles,
     Grid,
-    Paper, List, Space
+    Paper, List, Space, Timeline
 } from "@mantine/core";
-import {IconBrandGithub, IconMail, IconMapPin} from "@tabler/icons";
+import {IconBrandGithub, IconCode, IconDots, IconMail, IconMapPin} from "@tabler/icons";
 import AbstractShape from "../images/cool-abstract-shape.png"
 import {useState} from "react";
 
@@ -61,12 +61,24 @@ export function Experience() {
             title: "Visible Systems",
             logo: "../images/VisibleLogo.jpeg",
             years: "2017 - 2022",
-            position: "Web Developer",
-            description: "",
+            position: "Full Stack Developer",
+            description: "ASP.Net, HTML, JS, CSS",
             bullets: [
                 "Converted legacy website with over 5,000 pages, to a smaller, updated, responsive website.",
                 "Updated design and information on the site to fit company's image and products.",
                 "Created a dashboard for account and project management on the cloud."
+            ]
+        },
+        {
+            title: "SoTellUs",
+            logo: '../images/SoTellUs.png',
+            years: "2022",
+            position: 'Full Stack Developer',
+            description: '',
+            bullets: [
+                "Helped build a new dashboard frontend and integrated into existing PHP backend.",
+                "Updated Android app.",
+                "Helped release a new review capture web application."
             ]
         },
         {
@@ -77,7 +89,7 @@ export function Experience() {
             description: "",
             bullets: [
                 "Built website UI and backend.",
-                "Helped engineer a LoRaWAN gateway design & prototype",
+                "Helped engineer a LoRaWAN gateway design & prototype.",
                 "Built dashboard for user and data management."
             ]
         }
@@ -88,9 +100,16 @@ export function Experience() {
 
     return (
         <div id={"experience"}>
-            <Text size={40} className={classes.margin} fw={700} color={"blue.10"}>Experience</Text>
+            <Text size={40} className={classes.margin} fw={700} mb={50} color={"blue.10"}>Experience</Text>
+            <Timeline active={exp.length} mt={'lg'} styles={{
+                itemContent: {
+                    position: 'relative',
+                    top: -35
+                }
+            }}>
             {exp.map((experience) => {
             return(
+                <Timeline.Item>
             <Paper shadow={"sm"} p={"md"} radius={"sm"} m={10} withBorder>
                 <Group>
                     <Image src={ (experience.logo) } height={40} width={40}/>
@@ -115,8 +134,10 @@ export function Experience() {
                     </List>
                 </Container>
             </Paper>
+                </Timeline.Item>
             )
         })}
+            </Timeline>
             <Space my={50}/>
         </div>
     )

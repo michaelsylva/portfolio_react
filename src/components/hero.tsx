@@ -7,6 +7,7 @@ import type {Container, Engine} from "tsparticles-engine";
 
 import {useCallback} from "react";
 import ReactFloaterJs from "react-floaterjs";
+import {useMediaQuery} from "@mantine/hooks";
 
 const useStyles = createStyles((theme)=>({
     links: {
@@ -31,6 +32,7 @@ const useStyles = createStyles((theme)=>({
 export function Hero() {
 
     const { classes, cx } = useStyles();
+    const isTabletOrMobile = useMediaQuery('(max-width: 1224px)')
 
     const particlesInit = useCallback(async (engine: Engine) => {
         console.log(engine);
@@ -48,7 +50,7 @@ export function Hero() {
     return (
 
         <>
-                <Grid id="home" align={"flex-start"} pt={50} grow  className={classes.margin}>
+                <Grid id="home" align={"flex-start"} pt={50} pl={'md'} pr={'md'} grow  className={classes.margin}>
 
                     {/*<Particles id="tsparticles" url="js/bubbles.json" init={particlesInit} loaded={particlesLoaded} width={"auto"} className={classes.particles}/>
 */}
@@ -56,7 +58,7 @@ export function Hero() {
                         <Center style={{ height: 350 }}>
                             <Stack spacing={0} align={"flex-start"}>
 
-                        <Text size={55} fw={900} variant="gradient"
+                        <Text size={isTabletOrMobile ? 35 : 55} fw={900} variant="gradient"
                               gradient={{ from: 'blue.5', to: 'blue.9', deg: 45 }}>Michael Sylva</Text>
 
                         <Stack spacing={0}>

@@ -4,6 +4,7 @@ import CRM from "./crm/CRMStyles";
 import {useLocation} from "react-router-dom";
 import {links} from "../PortfolioPage";
 import {HeaderSimple} from "./header";
+import {FooterSocial} from "./footer";
 
 export default function PalmCRM(){
 
@@ -32,6 +33,8 @@ export default function PalmCRM(){
             </Box>
 
             <CRM/>
+
+            <FooterSocial/>
 
         </Stack>
     )

@@ -8,6 +8,9 @@ import PalmCRM from "./components/PalmCRM";
 import { MantineProvider } from '@mantine/core';
 import {HeaderSimple} from "./components/header";
 import PalmWebsite from "./components/PalmWebsite";
+import ZipCode from "./components/ZipCode";
+import ContactMe from "./components/ContactMe";
+import {Music} from "./components/music";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
     {
         path: '/projects/palm_website',
         element: <PalmWebsite/>
+    },
+    {
+        path: '/projects/zipcode',
+        element: <ZipCode/>
+    },
+    {
+        path: '/contact',
+        element: <ContactMe/>
+    },
+    {
+        path: '/music',
+        element: <Music/>
     }
 ]);
 

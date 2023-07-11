@@ -20,6 +20,8 @@ import React from "react";
 import YouTube from "react-youtube";
 import {HeaderSimple} from "../header";
 import {links} from "../../PortfolioPage";
+import ReactPlayer from "react-player";
+import FilePlayer from "react-player/file";
 
 export function BoxShadowUtil({children} : {children: any}){
     return (
@@ -66,7 +68,7 @@ export default function CRM(){
     return (
         <div style={{overflow: 'hidden'}}>
             <Stack spacing={0} p={'lg'} px={'10%'}>
-                <Text size={'lg'}><b>The Palm CRM</b> - <span style={{fontWeight: 300}}>Built for small business</span></Text>
+                <Text size={25}><b>The Palm CRM</b> - <span style={{fontWeight: 300}}>Built for small business</span></Text>
 
                 <Text>This is a project I have built for Palm Connectivity myself from scratch using the MERN Stack and some other cutting-edge technologies</Text>
 
@@ -74,14 +76,17 @@ export default function CRM(){
                 <Text>The motive for this project is creating solutions to problems we see our customers having daily. We do not focus on being the most robust or extensive CRM solution, instead we build a set of solutions for specific markets.</Text>
                 <br/>
 
-                <Text size={'lg'} fw={700}>Technical details</Text>
+                <Text size={25} fw={700}>Technical details</Text>
                 <Stack spacing={0}>
                     <Text size={'md'}>Our network is hosted on AWS where we host the backend and the database. The Express backend interacts with the database using the <a href={'https://sequelize.org/'}>Sequelize ORM</a>. All requests to the backend are verified with OAuth tokens determining your profile. The frontend is built with React and Vite. Most requests are made through <a href={'https://tanstack.com/query/v3/'}>react-query</a>. Live notifications and inbound calls are received through a WebSocket connection between the client and the server.</Text>
                 </Stack>
 
-                <Text pt={'md'} size={20} fw={500}>Video Demo:</Text>
+                <Text pt={'md'} size={25} fw={500}>Video Demo:</Text>
+                <Text color={'dimmed'} size={'sm'}>Disclaimer: All contacts and contact information in this video are fake</Text>
 
-                <YouTube videoId={'1KzDH2RN6HQ'}/>
+                <video autoPlay controls>
+                    <source src={'https://palmconnectivity.com/videos/PalmCRM-DEMO.mp4'} type={'video/mp4'}/>
+                </video>
 
                 <Text pt={'md'} size={20} fw={500}>Sales Demo:</Text>
             </Stack>

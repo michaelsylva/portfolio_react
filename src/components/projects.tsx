@@ -1,4 +1,4 @@
-import {Badge, Button, createStyles, Group, List, Paper, Space, Tabs, Text} from "@mantine/core";
+import {Badge, Box, Button, createStyles, Group, List, Paper, Space, Tabs, Text} from "@mantine/core";
 import {
     IconBrandBooking, IconBrandBootstrap,
     IconBrandCss3,
@@ -11,6 +11,7 @@ import {
 } from "@tabler/icons";
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import ContactForm from "./ContactForm";
 
 const useStyles = createStyles((theme)=>({
     large: {
@@ -45,6 +46,13 @@ export function Projects() {
             description: "Website for Palm Connectivity and the CRM project",
             tags: ['React', "Vite"],
             link: '/projects/palm_website'
+        },
+        {
+            title: "ZIP Code API",
+            icon: <IconDeviceDesktop/>,
+            description: "API for retrieving to ZIP Code Data",
+            tags: ['Node.JS', "Express", "Sequelize", 'AWS EC2'],
+            link: '/projects/zipcode'
         },
         {
             title: "SoTellUs Dashboard",
@@ -120,6 +128,9 @@ export function Projects() {
                     }}>Read more</Button>
                         </>
                     : <></>}
+
+
+
                 </Paper>
                 )
             })}

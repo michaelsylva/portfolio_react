@@ -1,4 +1,4 @@
-import {Avatar, Text, Burger, Group, Image, Header, Stack, Center, createStyles, Grid} from "@mantine/core";
+import {Avatar, Text, Burger, Group, Image, Header, Stack, Center, createStyles, Grid, Button} from "@mantine/core";
 import {IconBrandGithub, IconMail, IconMapPin} from "@tabler/icons";
 import AbstractShape from "../images/cool-abstract-shape.png"
 import {loadFull} from "tsparticles";
@@ -8,6 +8,7 @@ import type {Container, Engine} from "tsparticles-engine";
 import {useCallback} from "react";
 import ReactFloaterJs from "react-floaterjs";
 import {useMediaQuery} from "@mantine/hooks";
+import {useNavigate} from "react-router-dom";
 
 const useStyles = createStyles((theme)=>({
     links: {
@@ -33,19 +34,8 @@ export function Hero() {
 
     const { classes, cx } = useStyles();
     const isTabletOrMobile = useMediaQuery('(max-width: 1224px)')
+    const nav = useNavigate()
 
-    const particlesInit = useCallback(async (engine: Engine) => {
-        console.log(engine);
-
-        // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-        // starting from v2 you can add only the features you need reducing the bundle size
-        await loadFull(engine);
-    }, []);
-
-    const particlesLoaded = useCallback(async (container: Container | undefined) => {
-        await console.log(container);
-    }, []);
 
     return (
 
@@ -74,6 +64,9 @@ export function Hero() {
                             https://github.com/MichaelS52
                         </a>
                         </Group>
+                            <Button variant={'gradient'} onClick={()=>{
+                                nav('/contact')
+                            }} mt={'md'}>Contact Me</Button>
                         </Stack>
 
                     </Stack>
